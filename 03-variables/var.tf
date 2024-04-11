@@ -9,9 +9,6 @@ variable "y"{}
 variable "y_list"{
   default = [1,2,3]
 }
-
-# print the variable
-
 variable "z_map"{
   default ={
 
@@ -19,6 +16,10 @@ variable "z_map"{
     y=20
   }
 }
+
+# print the variable
+
+
 
 output "x" {
   value=var.x
@@ -31,5 +32,13 @@ output "y" {
 output "z" {
 
   value=var.z_map
+}
+
+output "y_1" {
+  value = var.y_list[1]
+}
+
+output "z_x" {
+  value = var.z_map["x"]
 }
 
