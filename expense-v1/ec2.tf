@@ -1,7 +1,7 @@
 resource "aws_instance" "frontend" {
-  ami           = "ami-090252cbe067a9e58"
-  instance_type = "t3.micro"
-  vpc_security_group_ids = ["sg-0c06371b05b6070a7"]
+  ami           = var.ami
+  instance_type = var.instance_type
+  vpc_security_group_ids = var.vpc_security_group_ids
   tags={
    Name= "frontend"
   }
@@ -9,9 +9,9 @@ resource "aws_instance" "frontend" {
 
 }
 resource "aws_instance" "backend" {
-  ami           = "ami-090252cbe067a9e58"
-  instance_type = "t3.micro"
-  vpc_security_group_ids = ["sg-0c06371b05b6070a7"]
+  ami           = var.ami
+  instance_type = var.instance_type
+  vpc_security_group_ids = var.vpc_security_group_ids
   tags={
     Name= "backend"
   }
@@ -19,11 +19,11 @@ resource "aws_instance" "backend" {
 }
 resource "aws_instance" "mysql" {
   ami           = var.ami
-#  "ami-090252cbe067a9e58"
+
   instance_type = var.instance_type
-#  "t3.micro"
+
   vpc_security_group_ids = var.vpc_security_group_ids
-#  ["sg-0c06371b05b6070a7"]
+
   tags={
     Name= "mysql"
   }
@@ -40,6 +40,11 @@ variable "instance_type" {
 
 variable "vpc_security_group_ids" {
   default = ["sg-0c06371b05b6070a7"]
-
-
 }
+# we can declare empty variables,but data can be sent from a file ,these files are called tfvars
+variable "env"{}
+output "env"{
+  value=var.env
+}
+
+
