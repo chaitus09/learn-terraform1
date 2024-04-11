@@ -13,8 +13,8 @@ variable "y_list"{
 # print the variable
 
 variable "z_map"{
-  default =
-  {
+  default ={
+
     x=10
     y=20
   }
