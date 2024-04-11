@@ -28,8 +28,8 @@ output "y" {
   value = var.y_list
 }
 
-output "z"
-{
+output "z" {
+
   value=var.z_map
 }
 
