@@ -5,3 +5,11 @@ variable "x" {
 
 # declaring a variable without a value
 variable "y"{}
+
+# print the variable
+
+output "x" {
+  value=var.x
+}
+
+
